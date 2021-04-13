@@ -223,6 +223,8 @@ h1 {
   }
   .img-container img {
     height: 55px;
+    box-shadow: 0 0 1px var(--b-neon-color1), 0 0 2px var(--b-neon-color2),
+      0 0 5px var(--b-neon-color3), 0 0 10px var(--b-neon-color4);
   }
   .img-container::after {
     height: 10px;
