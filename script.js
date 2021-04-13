@@ -38,8 +38,8 @@ loadSong(songs[songIndex]);
 
 function loadSong(song) {
   title.innerText = song;
-  audio.src = `music/${song}.mp3`;
-  cover.src = `images/${song}.jpg`;
+  audio.src = `https://magnusglide.github.io/simple-music-player/music/${song}.mp3`;
+  cover.src = `https://magnusglide.github.io/simple-music-player/images/${song}.jpg`;
 }
 
 function playSong() {
