@@ -238,7 +238,8 @@ h1 {
     font: 15px;
   }
   .action-btn:hover,
-  .action-btn:active {
+  .action-btn:active,
+  .action-btn:focus {
     outline: none;
     border: none;
   }
