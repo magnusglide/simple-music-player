@@ -233,6 +233,7 @@ h1 {
     font-size: 10px;
     padding: 5px;
     margin: 0 7px;
+    -webkit-tap-highlight-color: transparent;
   }
   .action-btn-big {
     font: 15px;
@@ -243,6 +244,7 @@ h1 {
     outline: none;
     border: none;
   }
+
   .music-info {
     left: 10px;
     width: calc(100% - 20px);
