@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bad%20Script");
+
+:root {
+  --background-color-1: rgb(0, 3, 26);
+  --background-color-2: rgb(144, 144, 167);
+  --title: rgb(255, 240, 240);
+  --neon-color1: rgb(255, 240, 240);
+  --neon-color2: rgb(255, 0, 0);
+  --neon-color3: rgb(255, 30, 30);
+  --neon-color4: rgb(255, 0, 0);
+  --b-neon-color1: rgb(7, 7, 7);
+  --b-neon-color2: rgb(0, 0, 0);
+  --b-neon-color3: rgb(54, 54, 54);
+  --b-neon-color4: rgb(0, 0, 0);
+  --w-neon-color1: rgb(241, 241, 241);
+  --w-neon-color2: rgb(255, 255, 255);
+  --w-neon-color3: rgb(218, 218, 218);
+  --w-neon-color4: rgb(255, 255, 255);
+  --music-container-bckgr: rgb(172, 16, 16);
+  --music-container-shadow: rgba(134, 18, 18, 0.6);
+  --inside-image-circle: rgb(0, 0, 0);
+  --btn-color: rgb(197, 197, 255);
+  --music-info-bckgr: rgba(198, 200, 212, 0.5);
+  --progress-container: white;
+  --progress-line: rgb(255, 0, 43);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  /* font-family: "Lato", sans-serif; */
+  font-family: "Bad Script", sans-serif;
+  background-image: linear-gradient(
+    0deg,
+    var(--background-color-1) 23.8%,
+    var(--background-color-2) 92%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+h1 {
+  font-size: 50px;
+  color: var(--title);
+  text-shadow: 0 0 10px var(--neon-color1), 0 0 20px var(--neon-color2),
+    0 0 40px var(--neon-color3), 0 0 80px var(--neon-color4);
+  margin-top: 5%;
+  margin-bottom: 12%;
+}
+
+.music-container {
+  background-color: var(--music-container-bckgr);
+  box-shadow: 0 20px 20px 0 var(--music-container-shadow);
+  border-radius: 15px;
+  display: flex;
+  padding: 20px 30px;
+  position: relative;
+  z-index: 10;
+}
+
+.img-container {
+  position: relative;
+  width: 110px;
+}
+.img-container::after {
+  content: "";
+  background-color: var(--inside-image-circle);
+  box-shadow: 0 0 2px var(--w-neon-color1), 0 0 5px var(--w-neon-color2),
+    0 0 10px var(--w-neon-color3), 0 0 20px var(--w-neon-color4);
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -100%);
+}
+.img-container img {
+  width: inherit;
+  height: 110px;
+  box-shadow: 0 0 2px var(--b-neon-color1), 0 0 5px var(--b-neon-color2),
+    0 0 10px var(--b-neon-color3), 0 0 20px var(--b-neon-color4);
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  animation: rotate 3s linear infinite;
+
+  animation-play-state: paused;
+}
+
+.music-container.play .img-container img {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.action-btn {
+  background-color: var(--music-container-bckgr);
+  color: var(--btn-color);
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 20px;
+}
+
+.action-btn-big {
+  color: var(--btn-color);
+  font: 30px;
+}
+
+.action-btn:focus {
+  outline: 0;
+}
+
+.music-info {
+  background-color: var(--music-info-bckgr);
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: calc(100% - 40px);
+  padding: 10px 10px 10px 150px;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.2s linear;
+}
+
+.music-info h4 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--title);
+  text-shadow: 0 0 5px var(--neon-color1), 0 0 10px var(--neon-color2),
+    0 0 20px var(--neon-color3), 0 0 40px var(--neon-color4);
+}
+
+.music-info.show {
+  opacity: 1;
+}
+
+.progress-container {
+  background-color: var(--progress-container);
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 4px;
+  width: 100%;
+}
+
+.progress {
+  background-color: var(--progress-line);
+  border-radius: 5px;
+  height: 100%;
+  width: 0;
+  transition: width 0.1sec linear;
+}
+
+.volume-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  margin-right: 20px;
+}
+
+#volumeId {
+  width: 5px;
+  margin-right: 25px;
+}
+
+.volume-container {
+  background-color: var(--progress-container);
+  cursor: pointer;
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+}
+
+.volume {
+  background-color: var(--btn-color);
+  border-radius: 5px;
+  height: 100%;
+  width: 50%;
+}
