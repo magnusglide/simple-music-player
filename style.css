@@ -238,6 +238,11 @@ h1 {
   .action-btn-big {
     font: 15px;
   }
+  .action-btn:hover,
+  .action-btn:active {
+    outline: none;
+    border: none;
+  }
   .music-info {
     left: 10px;
     width: calc(100% - 20px);
